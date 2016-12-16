@@ -1,0 +1,7 @@
+src
+tests
+.travis.yml
+.eslintrc
+.editorconfig
+build
+examples
