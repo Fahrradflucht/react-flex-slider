@@ -6,7 +6,6 @@ import warning from 'warning';
 import Track from './Track';
 import DefaultHandle from './Handle';
 import Scale from './Scale';
-import Marks from './Marks';
 
 function noop() {
 }
@@ -391,11 +390,6 @@ class Slider extends React.Component {
         <Scale
           prefixCls={prefixCls} marks={marks} dots={dots} step={step}
           included={isIncluded} handles={handles} tracks={tracks} lowerBound={bounds[0]}
-          upperBound={bounds[bounds.length - 1]} max={max} min={min}
-        />
-        <Marks
-          className={`${prefixCls}-mark`} marks={marks}
-          included={isIncluded} lowerBound={bounds[0]}
           upperBound={bounds[bounds.length - 1]} max={max} min={min}
         />
         {children}

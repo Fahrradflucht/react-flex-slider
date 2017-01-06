@@ -6,6 +6,9 @@
 @ease-out-quint      : cubic-bezier(0.23, 1, 0.32, 1);
 @ease-in-quint       : cubic-bezier(0.755, 0.05, 0.855, 0.06);
 @rail-height: 4px;
+@dot-diameter: 8px;
+@dot-border-width: 2px;
+@handle-diameter: 14px;
 
 .borderBox() {
   box-sizing: border-box;
@@ -19,14 +22,12 @@
 
 .@{prefixClass} {
   position: relative;
-  padding: 5px 0;
+  padding-top: (@handle-diameter/2);
   width: 100%;
   border-radius: @border-radius-base;
   .borderBox();
 
   &-rail {
-    position: absolute;
-    top: 50%;
     height: @rail-height;
     margin-top: -(@rail-height/2);
     width: 100%;
@@ -34,25 +35,23 @@
   }
 
   &-track {
-    position: absolute;
-    top: 50%;
     height: @rail-height;
-    margin-top: -(@rail-height/2);
+    margin-top: -@rail-height;
     border-radius: @border-radius-base;
     background-color: tint(@primary-color, 60%);
   }
 
   &-handle {
     position: absolute;
-    top: 50%;
-    margin-top: -7px; 
-    margin-left: -7px;
-    width: 14px;
-    height: 14px;
+    margin-top: -(@handle-diameter/2)+(@rail-height/2); 
+    margin-left: -(@handle-diameter/2);
+    width: @handle-diameter;
+    height: @handle-diameter;
     cursor: pointer;
     border-radius: 50%;
     border: solid 2px tint(@primary-color, 50%);
     background-color: #fff;
+    z-index: 1000;
 
     &:hover {
       border-color: tint(@primary-color, 20%);
@@ -65,30 +64,16 @@
     }
   }
 
-  &-mark {
-    width: 100%;
-    font-size: 12px;
-
-    display: flex;
-    justify-content: space-between;
-  }
-
   &-mark-text {
-    flex: 1;
-    vertical-align: middle;
-    text-align: center;
+    max-width: 100%;
+    margin-top: 0.5em;
+    -webkit-hyphens: auto;
+    -moz-hyphens: auto;
     cursor: pointer;
     color: #999;
 
     &-active {
       color: #666;
-    }
-
-    &:first-child {
-      transform: translateX(-50%);
-    }
-    &:last-child {
-      transform: translateX(50%);
     }
   }
 
@@ -96,33 +81,29 @@
     position: relative;
     width: 100%;
     background: transparent;
+  }
 
+  &-scaleElements {
+    margin-top: -(@rail-height/2);
     display: flex;
     justify-content: space-between;
   }
 
-  &-dot-wrapper {
-    z-index: 0;
-
-    &:first-of-type {
-      transform: translateX(-50%);
-    }
-
-    &:last-of-type {
-      transform: translateX(50%);
-    }
+  &-scaleElement {
+    margin-top: -(@dot-diameter/2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 
   &-dot {
-    display:inline-block;
-    vertical-align: middle;
-    width: 8px;
-    height: 8px;
-    margin-top: -2px;
-    border: 2px solid #e9e9e9;
+    width: @dot-diameter;
+    height: @dot-diameter;
+    border: @dot-border-width solid #e9e9e9;
     background-color: #fff;
     cursor: pointer;
     border-radius: 50%;
+    z-index: 1;
 
     &-active {
       border-color: tint(@primary-color, 50%);

@@ -18,9 +18,33 @@ function calcPoints(marks, dots, step, min, max) {
   return points;
 }
 
+const createMarks = (className, marks, included, upperBound, lowerBound) => {
+  const marksKeys = Object.keys(marks);
+
+  const elements = marksKeys.map(parseFloat).sort((a, b) => a - b).map((point) => {
+    const isActived = (!included && point === upperBound) ||
+            (included && point <= upperBound && point >= lowerBound);
+    const markClassName = classNames({
+      [`${className}-text`]: true,
+      [`${className}-text-active`]: isActived,
+    });
+
+    const markPoint = marks[point];
+    const markPointIsObject = typeof markPoint === 'object' &&
+            !React.isValidElement(markPoint);
+    const markLabel = markPointIsObject ? markPoint.label : markPoint;
+    return (
+      <span className={markClassName} key={point}>
+        {markLabel}
+      </span>);
+  });
+
+  return elements;
+};
+
 const Scale = ({ prefixCls, marks, dots, step, included, handles,
                 tracks, lowerBound, upperBound, max, min }) => {
-  const elements = calcPoints(marks, dots, step, min, max).map((point) => {
+  const dotNodes = calcPoints(marks, dots, step, min, max).map((point) => {
     const isActived = (!included && point === upperBound) ||
             (included && point <= upperBound && point >= lowerBound);
     const pointClassName = classNames({
@@ -28,19 +52,38 @@ const Scale = ({ prefixCls, marks, dots, step, included, handles,
       [`${prefixCls}-dot-active`]: isActived,
     });
 
-    return (
-      <span className={`${prefixCls}-dot-wrapper`} key={point}>
-        <span className={pointClassName} />
-      </span>
-    );
+    return (<span className={pointClassName} />);
   });
+
+  const markNodes = createMarks(`${prefixCls}-mark`, marks, included, upperBound, lowerBound);
+
+  const elements = dotNodes.map((dotNode, index) => (
+    <div
+      className={`${prefixCls}-scaleElement`}
+      style={{ width: `${100 / dotNodes.length}%` }}
+      key={index}
+    >
+      {dotNode}
+      {markNodes[index]}
+    </div>
+  ));
+
+  const elementsWidthFactor = 1 / (1 - (1 / elements.length));
+  const elementsMarginFactor = (1 - elementsWidthFactor) / 2;
+
+  const scaleElementsStyle = {
+    width: `${elementsWidthFactor * 100}%`,
+    marginLeft: `${elementsMarginFactor * 100}%`,
+  };
 
   return (
     <div className={`${prefixCls}-scale`}>
+      {handles}
       <div className={`${prefixCls}-rail`} />
       {tracks}
-      {elements}
-      {handles}
+      <div className={`${prefixCls}-scaleElements`} style={scaleElementsStyle}>
+        {elements}
+      </div>
     </div>);
 };
 
