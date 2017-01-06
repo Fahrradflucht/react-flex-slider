@@ -45,7 +45,8 @@
     "test": "rc-tools run test",
     "chrome-test": "rc-tools run chrome-test",
     "coverage": "rc-tools run coverage",
-    "watch": "rc-tools run watch"
+    "watch": "rc-tools run watch",
+    "prepublish": "npm run build"
   },
   "devDependencies": {
     "babel-eslint": "^7.1.1",
