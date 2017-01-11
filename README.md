@@ -1,53 +1,23 @@
-# rc-slider
+# react-flex-slider
 ---
 
-slider ui component for react
+Slider ui component for react based on [rc-slider](https://github.com/react-component/slider)
 
 [![NPM version][npm-image]][npm-url]
-[![build status][travis-image]][travis-url]
-[![Test coverage][coveralls-image]][coveralls-url]
-[![gemnasium deps][gemnasium-image]][gemnasium-url]
-[![node version][node-image]][node-url]
 [![npm download][download-image]][download-url]
-[![Sauce Test Status](https://saucelabs.com/buildstatus/rc-slider)](https://saucelabs.com/u/rc-slider)
 
-[![Sauce Test Status](https://saucelabs.com/browser-matrix/rc-slider.svg)](https://saucelabs.com/u/rc-slider)
-
-[npm-image]: http://img.shields.io/npm/v/rc-slider.svg?style=flat-square
-[npm-url]: http://npmjs.org/package/rc-slider
-[travis-image]: https://img.shields.io/travis/react-component/slider.svg?style=flat-square
-[travis-url]: https://travis-ci.org/react-component/slider
-[coveralls-image]: https://img.shields.io/coveralls/react-component/slider.svg?style=flat-square
-[coveralls-url]: https://coveralls.io/r/react-component/slider?branch=master
-[gemnasium-image]: http://img.shields.io/gemnasium/react-component/slider.svg?style=flat-square
-[gemnasium-url]: https://gemnasium.com/react-component/slider
-[node-image]: https://img.shields.io/badge/node.js-%3E=_0.10-green.svg?style=flat-square
-[node-url]: http://nodejs.org/download/
-[download-image]: https://img.shields.io/npm/dm/rc-slider.svg?style=flat-square
-[download-url]: https://npmjs.org/package/rc-slider
-
-## Screenshots
-
-<img src="https://t.alipayobjects.com/images/T1ki8fXeprXXXXXXXX.png" width="550"/>
-
-<img src="https://t.alipayobjects.com/images/T1pPhfXhBqXXXXXXXX.png" width="550"/>
-
-<img src="https://t.alipayobjects.com/images/T1wO8fXd4rXXXXXXXX.png" width="550"/>
-
-<img src="http://i.giphy.com/l46Cs36c9HrHMExoc.gif"/>
-
+[npm-image]: http://img.shields.io/npm/v/react-flex-slider.svg?style=flat-square
+[npm-url]: http://npmjs.org/package/react-flex-slider
+[download-image]: https://img.shields.io/npm/dm/react-flex-slider.svg?style=flat-square
+[download-url]: https://npmjs.org/package/react-flex-slider
 
 ## Feature
 
-* support ie8,ie8+,chrome,firefox,safari
-
-### Keyboard
-
-
+* support ie9,ie9+,chrome,firefox,safari
 
 ## install
 
-[![rc-slider](https://nodei.co/npm/rc-slider.png)](https://npmjs.org/package/rc-slider)
+[![rc-slider](https://nodei.co/npm/react-flex-slider.png)](https://npmjs.org/package/react-flex-slider)
 
 ## Usage
 
@@ -105,30 +75,6 @@ ReactDOM.render(<Slider />, container);
           <td>Value to be added or subtracted on each step the slider makes. Must be greater than zero. max - min should be evenly divisible by the step value. When `marks` is not an empty object, `step` can be set to `null`, to make marks as steps.</td>
         </tr>
         <tr>
-          <td>range</td>
-          <td>boolean or number</td>
-          <td>false</td>
-          <td>Determines the type of slider. If range is `true`, two handles will be rendered in order to select a range. If range is a number, multiple handles will be rendered (number + 1). Using `range={true}` is equivalent to `range={1}`.</td>
-        </tr>
-        <tr>
-          <td>allowCross</td>
-          <td>boolean</td>
-          <td>true</td>
-          <td>When `range` is `true`, `allowCross` could be set as `true` to allow those handles to cross.</td>
-        </tr>
-        <tr>
-          <td>pushable</td>
-          <td>boolean or number</td>
-          <td>true</td>
-          <td>When `range` is `true`, `pushable` could be set as `true` to allow pushing of surrounding handles when moving an handle. When set to a number, the number will be the minimum ensured distance between handles. Example: <img src="http://i.giphy.com/l46Cs36c9HrHMExoc.gif"/></td>
-        </tr>
-        <tr>
-          <td>vertical</td>
-          <td>boolean</td>
-          <td>false</td>
-          <td>If vertical is `true`, the slider will be vertical.</td>
-        </tr>
-        <tr>
           <td>defaultValue</td>
           <td>number or [number, number, ...]</td>
           <td>0 or [0, 0]</td>
@@ -157,18 +103,6 @@ ReactDOM.render(<Slider />, container);
           <td>boolean</td>
           <td>false</td>
           <td>If `true`, handles can't be moved.</td>
-        </tr>
-        <tr>
-          <td>tipTransitionName</td>
-          <td>string</td>
-          <td>''</td>
-          <td>Set the animation for tooltip if it shows.</td>
-        </tr>
-        <tr>
-          <td>tipFormatter</td>
-          <td>function or `null`</td>
-          <td></td>
-          <td>Format the value of the tooltip if it shows. If `null` the tooltip will always be hidden. When given a function, the first argument will be the value and the second will be the index of the slider handle.</td>
         </tr>
         <tr>
           <td>dots</td>
@@ -200,18 +134,8 @@ npm start
 
 ## Example
 
-http://localhost:8005/examples/
-
-online example: http://react-component.github.io/slider/
-
-## Test Case
-
-http://localhost:8005/tests/runner.html?coverage
-
-## Coverage
-
-http://localhost:8005/node_modules/rc-server/node_modules/node-jscover/lib/front-end/jscoverage.html?w=http://localhost:8088/tests/runner.html?coverage
+http://localhost:8005/examples/basics.html
 
 ## License
 
-rc-slider is released under the MIT license.
+react-flex-slider is released under the MIT license.
