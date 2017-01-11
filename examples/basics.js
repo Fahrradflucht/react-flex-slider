@@ -12,10 +12,10 @@ const threeMarks = {
 };
 
 const fourMarks = {
-  10: 10,
-  20: 20,
-  30: 30,
-  40: 40,
+  10: 'ten',
+  20: 'twenty',
+  30: 'thirty',
+  40: 'forty',
 };
 
 const fiveMarks = {
