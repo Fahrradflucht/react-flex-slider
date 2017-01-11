@@ -134,7 +134,7 @@ npm start
 
 ## Example
 
-http://localhost:8005/examples/basics.js
+http://localhost:8005/examples/basics.html
 
 ## License
 
