@@ -2,7 +2,7 @@
 <html>
 
 <head>
-  <title>slider.js - example - rc-slider@5.4.0</title>
+  <title>slider.js - example - react-flex-slider@6.1.0</title>
   <meta name="viewport"
         content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
   <meta charset="utf-8"/>
@@ -263,23 +263,23 @@ Monokai Sublime style. Derived from Monokai by noformnocontent http://nn.mit-lic
 <body>
   <div class="container">
     <div class="header">
-      <h1>rc-slider@5.4.0</h1>
+      <h1>react-flex-slider@6.1.0</h1>
 
       <p>slider ui component for react</p>
     </div>
     <div class="example" id="__react-content"></div>
 
     <div class="highlight"><pre><code language="js"><span class="hljs-comment">/* eslint react/no-multi-comp: 0 */</span>
-<span class="hljs-built_in">require</span>(<span class="hljs-string">'rc-slider/assets/index.css'</span>);
+<span class="hljs-built_in">require</span>(<span class="hljs-string">'react-flex-slider/assets/index.css'</span>);
 
 <span class="hljs-keyword">const</span> React = <span class="hljs-built_in">require</span>(<span class="hljs-string">'react'</span>);
 <span class="hljs-keyword">const</span> ReactDOM = <span class="hljs-built_in">require</span>(<span class="hljs-string">'react-dom'</span>);
-<span class="hljs-keyword">const</span> Slider = <span class="hljs-built_in">require</span>(<span class="hljs-string">'rc-slider'</span>);
+<span class="hljs-keyword">const</span> Slider = <span class="hljs-built_in">require</span>(<span class="hljs-string">'react-flex-slider'</span>);
 
 <span class="hljs-keyword">const</span> style = { width: <span class="hljs-number">400</span>, margin: <span class="hljs-number">50</span> };
 
 <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">log</span>(<span class="hljs-params">value</span>) </span>{
-  <span class="hljs-built_in">console</span>.log(value);
+  <span class="hljs-built_in">console</span>.log(value); <span class="hljs-comment">// eslint-disable-line no-console</span>
 }
 
 
@@ -287,50 +287,59 @@ Monokai Sublime style. Derived from Monokai by noformnocontent http://nn.mit-lic
   <span class="hljs-keyword">return</span> <span class="hljs-string">`<span class="hljs-subst">${v}</span> %`</span>;
 }
 
-<span class="hljs-keyword">const</span> CustomizedSlider = React.createClass({
-  getInitialState() {
-    <span class="hljs-keyword">return</span> {
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">CustomizedSlider</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">React</span>.<span class="hljs-title">Component</span> </span>{
+  constructor(props) {
+    <span class="hljs-keyword">super</span>(props);
+    <span class="hljs-keyword">this</span>.state = {
       value: <span class="hljs-number">50</span>,
     };
-  },
+  }
+
   onSliderChange(value) {
     log(value);
     <span class="hljs-keyword">this</span>.setState({
       value,
     });
-  },
+  }
+
   onAfterChange(value) {
-    <span class="hljs-built_in">console</span>.log(value);
-  },
+    <span class="hljs-built_in">console</span>.log(value); <span class="hljs-comment">// eslint-disable-line no-console</span>
+  }
+
   render() {
     <span class="hljs-keyword">return</span> (
       <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-title">Slider</span> <span class="hljs-attribute">value</span>=<span class="hljs-value">{this.state.value}</span>
         <span class="hljs-attribute">onChange</span>=<span class="hljs-value">{this.onSliderChange}</span> <span class="hljs-attribute">onAfterChange</span>=<span class="hljs-value">{this.onAfterChange}</span>
       /&gt;</span>
     )</span>;
-  },
-});
+  }
+}
 
-<span class="hljs-keyword">const</span> DynamicBounds = React.createClass({
-  getInitialState() {
-    <span class="hljs-keyword">return</span> {
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">DynamicBounds</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">React</span>.<span class="hljs-title">Component</span> </span>{
+  constructor(props) {
+    <span class="hljs-keyword">super</span>(props);
+    <span class="hljs-keyword">this</span>.state = {
       min: <span class="hljs-number">0</span>,
       max: <span class="hljs-number">100</span>,
     };
-  },
+  }
+
   onSliderChange(value) {
     log(value);
-  },
+  }
+
   onMinChange(e) {
     <span class="hljs-keyword">this</span>.setState({
       min: +e.target.value || <span class="hljs-number">0</span>,
     });
-  },
+  }
+
   onMaxChange(e) {
     <span class="hljs-keyword">this</span>.setState({
       max: +e.target.value || <span class="hljs-number">100</span>,
     });
-  },
+  }
+
   render() {
     <span class="hljs-keyword">return</span> (
       <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-title">div</span>&gt;</span>
@@ -345,8 +354,8 @@ Monokai Sublime style. Derived from Monokai by noformnocontent http://nn.mit-lic
         /&gt;</span>
       <span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
     )</span>;
-  },
-});
+  }
+}
 
 ReactDOM.render(
   <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-title">div</span>&gt;</span>
@@ -388,7 +397,7 @@ ReactDOM.render(
   , document.getElementById('__react-content'));
 </span></code></pre></div>
   </div>
-  <a href="http://github.com/react-component/slider">
+  <a href="http://github.com/kinghenne/react-flex-slider">
     <img style="position: absolute; top: 0; right: 0; border: 0;"
          src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67"
          alt="Fork me on GitHub"

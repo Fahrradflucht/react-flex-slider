@@ -3,15 +3,23 @@ webpackJsonp([3],{
 /***/ 0:
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__(325);
+	module.exports = __webpack_require__(194);
 
 
 /***/ },
 
-/***/ 325:
+/***/ 194:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
+	
+	function _defaults(obj, defaults) { var keys = Object.getOwnPropertyNames(defaults); for (var i = 0; i < keys.length; i++) { var key = keys[i]; var value = Object.getOwnPropertyDescriptor(defaults, key); if (value && value.configurable && obj[key] === undefined) { Object.defineProperty(obj, key, value); } } return obj; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : _defaults(subClass, superClass); }
 	
 	/* eslint react/no-multi-comp: 0 */
 	__webpack_require__(2);
@@ -23,58 +31,79 @@ webpackJsonp([3],{
 	var style = { width: 400, margin: 50 };
 	
 	function log(value) {
-	  console.log(value);
+	  console.log(value); // eslint-disable-line no-console
 	}
 	
 	function percentFormatter(v) {
 	  return v + ' %';
 	}
 	
-	var CustomizedSlider = React.createClass({
-	  displayName: 'CustomizedSlider',
-	  getInitialState: function getInitialState() {
-	    return {
+	var CustomizedSlider = function (_React$Component) {
+	  _inherits(CustomizedSlider, _React$Component);
+	
+	  function CustomizedSlider(props) {
+	    _classCallCheck(this, CustomizedSlider);
+	
+	    var _this = _possibleConstructorReturn(this, _React$Component.call(this, props));
+	
+	    _this.state = {
 	      value: 50
 	    };
-	  },
-	  onSliderChange: function onSliderChange(value) {
+	    return _this;
+	  }
+	
+	  CustomizedSlider.prototype.onSliderChange = function onSliderChange(value) {
 	    log(value);
 	    this.setState({
 	      value: value
 	    });
-	  },
-	  onAfterChange: function onAfterChange(value) {
-	    console.log(value);
-	  },
-	  render: function render() {
+	  };
+	
+	  CustomizedSlider.prototype.onAfterChange = function onAfterChange(value) {
+	    console.log(value); // eslint-disable-line no-console
+	  };
+	
+	  CustomizedSlider.prototype.render = function render() {
 	    return React.createElement(Slider, { value: this.state.value,
 	      onChange: this.onSliderChange, onAfterChange: this.onAfterChange
 	    });
-	  }
-	});
+	  };
 	
-	var DynamicBounds = React.createClass({
-	  displayName: 'DynamicBounds',
-	  getInitialState: function getInitialState() {
-	    return {
+	  return CustomizedSlider;
+	}(React.Component);
+	
+	var DynamicBounds = function (_React$Component2) {
+	  _inherits(DynamicBounds, _React$Component2);
+	
+	  function DynamicBounds(props) {
+	    _classCallCheck(this, DynamicBounds);
+	
+	    var _this2 = _possibleConstructorReturn(this, _React$Component2.call(this, props));
+	
+	    _this2.state = {
 	      min: 0,
 	      max: 100
 	    };
-	  },
-	  onSliderChange: function onSliderChange(value) {
+	    return _this2;
+	  }
+	
+	  DynamicBounds.prototype.onSliderChange = function onSliderChange(value) {
 	    log(value);
-	  },
-	  onMinChange: function onMinChange(e) {
+	  };
+	
+	  DynamicBounds.prototype.onMinChange = function onMinChange(e) {
 	    this.setState({
 	      min: +e.target.value || 0
 	    });
-	  },
-	  onMaxChange: function onMaxChange(e) {
+	  };
+	
+	  DynamicBounds.prototype.onMaxChange = function onMaxChange(e) {
 	    this.setState({
 	      max: +e.target.value || 100
 	    });
-	  },
-	  render: function render() {
+	  };
+	
+	  DynamicBounds.prototype.render = function render() {
 	    return React.createElement(
 	      'div',
 	      null,
@@ -97,8 +126,10 @@ webpackJsonp([3],{
 	        onChange: this.onSliderChange
 	      })
 	    );
-	  }
-	});
+	  };
+	
+	  return DynamicBounds;
+	}(React.Component);
 	
 	ReactDOM.render(React.createElement(
 	  'div',
