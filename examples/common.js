@@ -21529,7 +21529,8 @@
 	        marks = _props4.marks,
 	        max = _props4.max,
 	        min = _props4.min,
-	        children = _props4.children;
+	        children = _props4.children,
+	        showTrack = _props4.showTrack;
 	
 	
 	    var customHandle = this.props.handle;
@@ -21568,14 +21569,16 @@
 	    var isIncluded = included;
 	
 	    var tracks = [];
-	    for (var i = 1; i < bounds.length; i += 1) {
-	      var _classNames2;
+	    if (showTrack) {
+	      for (var i = 1; i < bounds.length; i += 1) {
+	        var _classNames2;
 	
-	      var trackClassName = (0, _classnames2.default)((_classNames2 = {}, _defineProperty(_classNames2, prefixCls + '-track', true), _defineProperty(_classNames2, prefixCls + '-track-' + i, true), _classNames2));
-	      tracks.push(_react2.default.createElement(_Track2.default, {
-	        className: trackClassName, included: isIncluded,
-	        offset: offsets[i - 1], length: offsets[i] - offsets[i - 1], key: i
-	      }));
+	        var trackClassName = (0, _classnames2.default)((_classNames2 = {}, _defineProperty(_classNames2, prefixCls + '-track', true), _defineProperty(_classNames2, prefixCls + '-track-' + i, true), _classNames2));
+	        tracks.push(_react2.default.createElement(_Track2.default, {
+	          className: trackClassName, included: isIncluded,
+	          offset: offsets[i - 1], length: offsets[i] - offsets[i - 1], key: i
+	        }));
+	      }
 	    }
 	
 	    var sliderClassName = (0, _classnames2.default)((_classNames3 = {}, _defineProperty(_classNames3, prefixCls, true), _defineProperty(_classNames3, prefixCls + '-with-marks', Object.keys(marks).length), _defineProperty(_classNames3, prefixCls + '-disabled', disabled), _defineProperty(_classNames3, className, !!className), _classNames3));
@@ -21616,7 +21619,8 @@
 	  onChange: _react2.default.PropTypes.func,
 	  onAfterChange: _react2.default.PropTypes.func,
 	  handle: _react2.default.PropTypes.element,
-	  dots: _react2.default.PropTypes.bool
+	  dots: _react2.default.PropTypes.bool,
+	  showTrack: _react2.default.PropTypes.bool
 	};
 	
 	Slider.defaultProps = {
@@ -21632,7 +21636,8 @@
 	  onAfterChange: noop,
 	  included: true,
 	  disabled: false,
-	  dots: false
+	  dots: false,
+	  showTrack: true
 	};
 	
 	exports.default = Slider;

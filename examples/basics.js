@@ -64,7 +64,7 @@ webpackJsonp([0],[
 	      null,
 	      'Slider (choose all values)'
 	    ),
-	    React.createElement(Slider, { marks: threeMarks, onChange: log, defaultValue: 20 })
+	    React.createElement(Slider, { marks: threeMarks, onChange: log, defaultValue: 20, showTrack: false })
 	  ),
 	  React.createElement(
 	    'div',
