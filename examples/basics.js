@@ -38,7 +38,7 @@ ReactDOM.render(
     </div>
     <div style={style}>
       <p>Slider (choose all values)</p>
-      <Slider marks={threeMarks} onChange={log} defaultValue={20} />
+      <Slider marks={threeMarks} onChange={log} defaultValue={20} showTrack={false}/>
     </div>
     <div style={style}>
       <p>Slider (choose values in steps)</p>
