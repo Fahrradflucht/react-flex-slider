@@ -325,6 +325,7 @@ class Slider extends React.Component {
         marks,
         max, min,
         children,
+        showTrack,
     } = this.props;
 
     const customHandle = this.props.handle;
@@ -361,17 +362,19 @@ class Slider extends React.Component {
     const isIncluded = included;
 
     const tracks = [];
-    for (let i = 1; i < bounds.length; i += 1) {
-      const trackClassName = classNames({
-        [`${prefixCls}-track`]: true,
-        [`${prefixCls}-track-${i}`]: true,
-      });
-      tracks.push(
-        <Track
-          className={trackClassName} included={isIncluded}
-          offset={offsets[i - 1]} length={offsets[i] - offsets[i - 1]} key={i}
-        />,
-      );
+    if (showTrack) {
+      for (let i = 1; i < bounds.length; i += 1) {
+        const trackClassName = classNames({
+          [`${prefixCls}-track`]: true,
+          [`${prefixCls}-track-${i}`]: true,
+        });
+        tracks.push(
+          <Track
+            className={trackClassName} included={isIncluded}
+            offset={offsets[i - 1]} length={offsets[i] - offsets[i - 1]} key={i}
+          />,
+        );
+      }
     }
 
     const sliderClassName = classNames({
@@ -419,6 +422,7 @@ Slider.propTypes = {
   onAfterChange: React.PropTypes.func,
   handle: React.PropTypes.element,
   dots: React.PropTypes.bool,
+  showTrack: React.PropTypes.bool,
 };
 
 Slider.defaultProps = {
@@ -435,6 +439,7 @@ Slider.defaultProps = {
   included: true,
   disabled: false,
   dots: false,
+  showTrack: true,
 };
 
 export default Slider;
