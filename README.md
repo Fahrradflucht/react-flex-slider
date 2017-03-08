@@ -122,6 +122,12 @@ ReactDOM.render(<Slider />, container);
           <td>NOOP</td>
           <td>`onAfterChange` will be triggered when `ontouchend` or `onmouseup` is triggered.</td>
         </tr>
+        <tr>
+          <td>showTrack</td>
+          <td>boolean</td>
+          <td>true</td>
+          <td>If `true` a track of the selected range (from min to handle position) is shown on the scale.</td>
+        </tr>
     </tbody>
 </table>
 
