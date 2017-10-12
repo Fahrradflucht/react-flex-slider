@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import warning from 'warning';
 
@@ -86,22 +87,22 @@ const Scale = ({ prefixCls, marks, dots, step, included, handles,
 };
 
 Scale.propTypes = {
-  prefixCls: React.PropTypes.string,
-  marks: React.PropTypes.objectOf(
-    React.PropTypes.oneOfType([
-      React.PropTypes.string,
-      React.PropTypes.number,
+  prefixCls: PropTypes.string,
+  marks: PropTypes.objectOf(
+    PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.number,
     ]),
   ),
-  dots: React.PropTypes.bool,
-  step: React.PropTypes.number,
-  included: React.PropTypes.bool,
-  handles: React.PropTypes.node,
-  tracks: React.PropTypes.node,
-  lowerBound: React.PropTypes.number,
-  upperBound: React.PropTypes.number,
-  max: React.PropTypes.number,
-  min: React.PropTypes.number,
+  dots: PropTypes.bool,
+  step: PropTypes.number,
+  included: PropTypes.bool,
+  handles: PropTypes.node,
+  tracks: PropTypes.node,
+  lowerBound: PropTypes.number,
+  upperBound: PropTypes.number,
+  max: PropTypes.number,
+  min: PropTypes.number,
 };
 
 export default Scale;
