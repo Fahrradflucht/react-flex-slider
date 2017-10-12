@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const Handle = ({ className, offset }) => {
   const style = { left: `${offset}%` };
@@ -6,8 +7,8 @@ const Handle = ({ className, offset }) => {
 };
 
 Handle.propTypes = {
-  className: React.PropTypes.string,
-  offset: React.PropTypes.number,
+  className: PropTypes.string,
+  offset: PropTypes.number,
 };
 
 export default Handle;

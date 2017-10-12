@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const Track = ({ className, included, offset, length }) => {
   const style = {
@@ -10,10 +11,10 @@ const Track = ({ className, included, offset, length }) => {
 };
 
 Track.propTypes = {
-  className: React.PropTypes.string,
-  included: React.PropTypes.bool,
-  offset: React.PropTypes.number,
-  length: React.PropTypes.number,
+  className: PropTypes.string,
+  included: PropTypes.bool,
+  offset: PropTypes.number,
+  length: PropTypes.number,
 };
 
 export default Track;

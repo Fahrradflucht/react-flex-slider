@@ -1,5 +1,6 @@
 import { findDOMNode } from 'react-dom';
 import React, { cloneElement } from 'react';
+import PropTypes from 'prop-types';
 import addEventListener from 'rc-util/lib/Dom/addEventListener';
 import classNames from 'classnames';
 import warning from 'warning';
@@ -402,27 +403,27 @@ class Slider extends React.Component {
 }
 
 Slider.propTypes = {
-  min: React.PropTypes.number,
-  max: React.PropTypes.number,
-  step: React.PropTypes.number,
-  defaultValue: React.PropTypes.number,
-  value: React.PropTypes.number,
-  marks: React.PropTypes.objectOf(
-    React.PropTypes.oneOfType([
-      React.PropTypes.string,
-      React.PropTypes.number,
+  min: PropTypes.number,
+  max: PropTypes.number,
+  step: PropTypes.number,
+  defaultValue: PropTypes.number,
+  value: PropTypes.number,
+  marks: PropTypes.objectOf(
+    PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.number,
     ]),
   ),
-  included: React.PropTypes.bool,
-  className: React.PropTypes.string,
-  prefixCls: React.PropTypes.string,
-  disabled: React.PropTypes.bool,
-  children: React.PropTypes.element,
-  onChange: React.PropTypes.func,
-  onAfterChange: React.PropTypes.func,
-  handle: React.PropTypes.element,
-  dots: React.PropTypes.bool,
-  showTrack: React.PropTypes.bool,
+  included: PropTypes.bool,
+  className: PropTypes.string,
+  prefixCls: PropTypes.string,
+  disabled: PropTypes.bool,
+  children: PropTypes.element,
+  onChange: PropTypes.func,
+  onAfterChange: PropTypes.func,
+  handle: PropTypes.element,
+  dots: PropTypes.bool,
+  showTrack: PropTypes.bool,
 };
 
 Slider.defaultProps = {
